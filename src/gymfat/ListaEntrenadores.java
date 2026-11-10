@@ -198,8 +198,9 @@ public class ListaEntrenadores extends JPanel implements ActionListener {
 
     // Abre el diálogo para registrar un entrenador y, si se guardó, recarga la tabla
     private void agregarEntrenador() {
-        AddTrainer dlgAgregarEntrenador = new AddTrainer(SwingUtilities.getWindowAncestor(this));
-        if (dlgAgregarEntrenador.saved) {
+        DialogoAgregarEntrenador dlgAgregarEntrenador =
+                new DialogoAgregarEntrenador(SwingUtilities.getWindowAncestor(this));
+        if (dlgAgregarEntrenador.isFueGuardado()) {
             cargarEntrenadores("");
         }
     }

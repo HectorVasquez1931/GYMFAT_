@@ -57,11 +57,6 @@ public class DialogoAgregarUsuario extends JDialog implements ActionListener {
     private static final int ALTO_CAMPO = 36;
     private static final int ALTO_FILA_BOTONES = 40;
 
-    // Colores propios de este diálogo
-    private static final Color ROJO_ERROR = new Color(220, 80, 80);
-    private static final Color FONDO_BOTON_CANCELAR = new Color(30, 30, 30);
-    private static final Color TEXTO_BOTON_CANCELAR = new Color(150, 150, 150);
-
     // Fuentes de este diálogo
     private static final Font FUENTE_TITULO = new Font(Estilos.FUENTE, Font.BOLD, 22);
     private static final Font FUENTE_EMPLEADO = new Font(Estilos.FUENTE, Font.PLAIN, 10);
@@ -162,7 +157,7 @@ public class DialogoAgregarUsuario extends JDialog implements ActionListener {
 
         lblError = new JLabel(SIN_ERROR);
         lblError.setFont(FUENTE_ERROR);
-        lblError.setForeground(ROJO_ERROR);
+        lblError.setForeground(Estilos.ROJO_ERROR);
         lblError.setAlignmentX(LEFT_ALIGNMENT);
         pnlFormulario.add(lblError);
         pnlFormulario.add(Box.createRigidArea(new Dimension(0, 8)));
@@ -228,7 +223,7 @@ public class DialogoAgregarUsuario extends JDialog implements ActionListener {
         JPanel pnlBotones = new JPanel(new GridLayout(1, 2, 12, 0));
         pnlBotones.setOpaque(false);
         pnlBotones.setMaximumSize(new Dimension(Integer.MAX_VALUE, ALTO_FILA_BOTONES));
-        pnlBotones.add(crearBoton(COMANDO_CANCELAR, FONDO_BOTON_CANCELAR, TEXTO_BOTON_CANCELAR,
+        pnlBotones.add(crearBoton(COMANDO_CANCELAR, Estilos.FONDO_BOTON_CANCELAR, Estilos.TEXTO_BOTON_CANCELAR,
                 FUENTE_BOTON_CANCELAR));
         pnlBotones.add(crearBoton(COMANDO_GUARDAR, Estilos.AMARILLO, Color.BLACK,
                 FUENTE_BOTON_GUARDAR));

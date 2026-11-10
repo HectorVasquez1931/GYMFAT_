@@ -74,6 +74,13 @@ public final class Estilos {
     // Texto secundario debajo del título, como el subtítulo o el nombre del empleado
     public static final Color GRIS_SUBTITULO = new Color(68, 68, 68);
 
+    // Texto de los errores de validación en los diálogos de alta
+    public static final Color ROJO_ERROR = new Color(220, 80, 80);
+
+    // Fondo y texto del botón Cancelar en los diálogos de alta
+    public static final Color FONDO_BOTON_CANCELAR = new Color(30, 30, 30);
+    public static final Color TEXTO_BOTON_CANCELAR = new Color(150, 150, 150);
+
     // Nombre de la fuente que usan todas las pantallas
     public static final String FUENTE = "Arial";
 
