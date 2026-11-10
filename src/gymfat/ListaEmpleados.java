@@ -210,8 +210,9 @@ public class ListaEmpleados extends JPanel implements ActionListener {
 
     // Abre el diálogo para registrar un empleado y, si se guardó, recarga la tabla
     private void agregarEmpleado() {
-        AddEmployee dlgAgregarEmpleado = new AddEmployee(SwingUtilities.getWindowAncestor(this));
-        if (dlgAgregarEmpleado.saved) {
+        DialogoAgregarEmpleado dlgAgregarEmpleado =
+                new DialogoAgregarEmpleado(SwingUtilities.getWindowAncestor(this));
+        if (dlgAgregarEmpleado.isFueGuardado()) {
             cargarEmpleados("");
         }
     }
