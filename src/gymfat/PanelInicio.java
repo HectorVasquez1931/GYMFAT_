@@ -70,8 +70,7 @@ public class PanelInicio extends JPanel {
     // Número máximo de visitas que se muestran en el historial
     private static final int LIMITE_HISTORIAL = 50;
 
-    // Carpeta donde se guardan las fotos de los miembros, nombradas con su ID
-    private static final String RUTA_FOTOS = "C:\\GymFat\\fotos\\";
+    // Extensiones con las que se buscan las fotos de los miembros en Rutas.RUTA_FOTOS
     private static final String EXTENSION_JPG = ".jpg";
     private static final String EXTENSION_PNG = ".png";
 
@@ -830,9 +829,9 @@ public class PanelInicio extends JPanel {
 
     // Busca la foto del miembro primero en .jpg y, si no existe, en .png
     private File buscarArchivoFoto(int idMiembro) {
-        File archivoFoto = new File(RUTA_FOTOS + idMiembro + EXTENSION_JPG);
+        File archivoFoto = new File(Rutas.RUTA_FOTOS + idMiembro + EXTENSION_JPG);
         if (!archivoFoto.exists()) {
-            archivoFoto = new File(RUTA_FOTOS + idMiembro + EXTENSION_PNG);
+            archivoFoto = new File(Rutas.RUTA_FOTOS + idMiembro + EXTENSION_PNG);
         }
         return archivoFoto;
     }

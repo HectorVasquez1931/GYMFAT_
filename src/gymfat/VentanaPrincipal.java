@@ -265,7 +265,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private JPanel crearPanelContenido() {
         pnlContenido.setLayout(distribucionPantallas);
         pnlContenido.add(new PanelInicio(nombreUsuario), OPCION_INICIO);
-        pnlContenido.add(new AddMember(), OPCION_REGISTRAR_MIEMBRO);
+        pnlContenido.add(new PanelRegistroMiembro(), OPCION_REGISTRAR_MIEMBRO);
         pnlListaMiembros = new ListaMiembros(nivel);
         pnlContenido.add(pnlListaMiembros, OPCION_LISTA_MIEMBROS);
         pnlContenido.add(new ListaEntrenadores(), OPCION_ENTRENADORES);

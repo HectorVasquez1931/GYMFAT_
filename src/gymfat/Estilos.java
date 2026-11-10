@@ -33,7 +33,7 @@ public final class Estilos {
 
     // Colores de las pantallas de lista (miembros, entrenadores, empleados)
 
-    // Fondo de la pantalla y de la barra de búsqueda
+    // Fondo de las pantallas de lista y de registro, y de la barra de búsqueda
     public static final Color FONDO_LISTA = new Color(248, 248, 248);
 
     // Fondo de las filas impares de las tablas
