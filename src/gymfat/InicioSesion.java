@@ -12,8 +12,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,24 +35,12 @@ public class InicioSesion extends JFrame implements ActionListener {
 
     // Constantes
 
-    // Algoritmo con el que se guardan las contraseñas en la base de datos
-    private static final String ALGORITMO_HASH = "SHA-256";
-
-    // Formato de cada byte del hash: dos dígitos hexadecimales en mayúsculas
-    private static final String FORMATO_BYTE_HEXADECIMAL = "%02X";
-
     // Tamaños de la ventana y de sus paneles, en píxeles
     private static final int ANCHO_VENTANA = 700;
     private static final int ALTO_VENTANA = 300;
     private static final int ANCHO_PANEL_IZQUIERDO = 300;
     private static final int ANCHO_PANEL_DERECHO = 386;
     private static final int ALTO_CAMPO = 40;
-
-    // Colores propios de esta ventana
-    private static final Color NEGRO_CLARO = new Color(17, 17, 17);
-    private static final Color FONDO_CAMPO = new Color(26, 26, 26);
-    private static final Color BORDE_CAMPO = new Color(42, 42, 42);
-    private static final Color GRIS_SUBTITULO = new Color(68, 68, 68);
 
     // Fuentes de esta ventana
     private static final Font FUENTE_TITULO = new Font(Estilos.FUENTE, Font.BOLD, 30);
@@ -103,7 +89,7 @@ public class InicioSesion extends JFrame implements ActionListener {
 
         JLabel lblSubtitulo = new JLabel("Sistema de gestión", SwingConstants.CENTER);
         lblSubtitulo.setFont(FUENTE_ETIQUETA);
-        lblSubtitulo.setForeground(GRIS_SUBTITULO);
+        lblSubtitulo.setForeground(Estilos.GRIS_SUBTITULO);
         lblSubtitulo.setAlignmentX(CENTER_ALIGNMENT);
 
         pnlLogotipo.add(Box.createVerticalGlue());
@@ -117,7 +103,7 @@ public class InicioSesion extends JFrame implements ActionListener {
     private JPanel crearPanelFormulario() {
         JPanel pnlFormulario = new JPanel();
         pnlFormulario.setLayout(new BoxLayout(pnlFormulario, BoxLayout.Y_AXIS));
-        pnlFormulario.setBackground(NEGRO_CLARO);
+        pnlFormulario.setBackground(Estilos.FONDO_FORMULARIO);
         pnlFormulario.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
         pnlFormulario.setPreferredSize(new Dimension(ANCHO_PANEL_DERECHO, 0));
         pnlFormulario.add(Box.createVerticalGlue());
@@ -172,7 +158,7 @@ public class InicioSesion extends JFrame implements ActionListener {
         }
 
         try {
-            String[] datosUsuario = consultarUsuario(usuario, generarHash(contrasena));
+            String[] datosUsuario = consultarUsuario(usuario, Cifrado.generarHash(contrasena));
             if (datosUsuario == null) {
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.",
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -223,19 +209,6 @@ public class InicioSesion extends JFrame implements ActionListener {
 
     // Métodos auxiliares
 
-    // Cifra la contraseña con SHA-256 y la devuelve en hexadecimal, igual que
-    // como está guardada en la base de datos
-    private String generarHash(String contrasena) throws NoSuchAlgorithmException {
-        MessageDigest cifrador = MessageDigest.getInstance(ALGORITMO_HASH);
-        byte[] bytesHash = cifrador.digest(contrasena.getBytes(StandardCharsets.UTF_8));
-
-        StringBuilder hashHexadecimal = new StringBuilder();
-        for (byte valorByte : bytesHash) {
-            hashHexadecimal.append(String.format(FORMATO_BYTE_HEXADECIMAL, valorByte));
-        }
-        return hashHexadecimal.toString();
-    }
-
     // Crea la etiqueta gris que va arriba de cada campo
     private JLabel crearEtiquetaCampo(String texto) {
         JLabel lblCampo = new JLabel(texto);
@@ -248,11 +221,11 @@ public class InicioSesion extends JFrame implements ActionListener {
     // Aplica el estilo oscuro a un campo de texto y lo devuelve
     private JComponent darEstiloCampo(JTextField campo) {
         campo.setMaximumSize(new Dimension(Integer.MAX_VALUE, ALTO_CAMPO));
-        campo.setBackground(FONDO_CAMPO);
+        campo.setBackground(Estilos.FONDO_CAMPO_OSCURO);
         campo.setForeground(Color.WHITE);
         campo.setFont(FUENTE_CAMPO);
         campo.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(BORDE_CAMPO, 1),
+                BorderFactory.createLineBorder(Estilos.BORDE_CAMPO_OSCURO, 1),
                 BorderFactory.createEmptyBorder(4, 12, 4, 12)));
         campo.setAlignmentX(LEFT_ALIGNMENT);
         return campo;

@@ -60,6 +60,20 @@ public final class Estilos {
     // Texto de las filas de las tablas
     public static final Color GRIS_TEXTO_FILA = new Color(40, 40, 40);
 
+    // Colores de las ventanas oscuras (inicio de sesión y diálogos de alta)
+
+    // Fondo del panel donde está el formulario
+    public static final Color FONDO_FORMULARIO = new Color(17, 17, 17);
+
+    // Fondo de los campos de texto del formulario
+    public static final Color FONDO_CAMPO_OSCURO = new Color(26, 26, 26);
+
+    // Borde de los campos de texto del formulario
+    public static final Color BORDE_CAMPO_OSCURO = new Color(42, 42, 42);
+
+    // Texto secundario debajo del título, como el subtítulo o el nombre del empleado
+    public static final Color GRIS_SUBTITULO = new Color(68, 68, 68);
+
     // Nombre de la fuente que usan todas las pantallas
     public static final String FUENTE = "Arial";
 

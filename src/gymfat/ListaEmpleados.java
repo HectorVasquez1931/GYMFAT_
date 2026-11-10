@@ -226,7 +226,7 @@ public class ListaEmpleados extends JPanel implements ActionListener {
         int idEmpleado = (int) modeloEmpleados.getValueAt(fila, COLUMNA_ID);
         String nombreEmpleado = modeloEmpleados.getValueAt(fila, COLUMNA_NOMBRE) + " "
                 + modeloEmpleados.getValueAt(fila, COLUMNA_APELLIDO_PATERNO);
-        new AddUser(SwingUtilities.getWindowAncestor(this), idEmpleado, nombreEmpleado);
+        new DialogoAgregarUsuario(SwingUtilities.getWindowAncestor(this), idEmpleado, nombreEmpleado);
     }
 
     // Acceso a datos
