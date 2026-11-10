@@ -84,7 +84,6 @@ public class ListaMiembros extends JPanel implements ActionListener {
 
     // Colores propios de esta pantalla; los compartidos con otras listas están en Estilos
     private static final Color ROJO_CLARO = new Color(255, 235, 235);
-    private static final Color GRIS_TEXTO_FILA = new Color(40, 40, 40);
 
     // Fuentes de esta pantalla
     private static final Font FUENTE_TITULO = new Font(Estilos.FUENTE, Font.BOLD, 28);
@@ -399,7 +398,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
                 } else {
                     celda.setBackground(fila % 2 == 0 ? Color.WHITE : Estilos.GRIS_FILA);
                 }
-                celda.setForeground(GRIS_TEXTO_FILA);
+                celda.setForeground(Estilos.GRIS_TEXTO_FILA);
             }
             setBorder(BorderFactory.createEmptyBorder(0, 8, 0, 8));
             return celda;

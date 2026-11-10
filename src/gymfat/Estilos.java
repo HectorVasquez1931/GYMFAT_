@@ -57,6 +57,9 @@ public final class Estilos {
     // Texto de los títulos de las columnas
     public static final Color GRIS_TEXTO_ENCABEZADO = new Color(80, 80, 80);
 
+    // Texto de las filas de las tablas
+    public static final Color GRIS_TEXTO_FILA = new Color(40, 40, 40);
+
     // Nombre de la fuente que usan todas las pantallas
     public static final String FUENTE = "Arial";
 

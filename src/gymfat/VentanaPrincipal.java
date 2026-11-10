@@ -270,7 +270,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         pnlContenido.add(pnlListaMiembros, OPCION_LISTA_MIEMBROS);
         pnlContenido.add(new ListaEntrenadores(), OPCION_ENTRENADORES);
         pnlContenido.add(new PanelMembresias(), OPCION_MEMBRESIAS);
-        pnlContenido.add(new EmployeesList(nivel), OPCION_EMPLEADOS);
+        pnlContenido.add(new ListaEmpleados(), OPCION_EMPLEADOS);
 
         distribucionPantallas.show(pnlContenido, OPCION_INICIO);
         return pnlContenido;
