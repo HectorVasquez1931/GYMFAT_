@@ -22,6 +22,15 @@ public final class Estilos {
     // Fondo de los botones cuando el cursor pasa sobre ellos
     public static final Color GRIS_OSCURO = new Color(40, 40, 40);
 
+    // Color para acciones de confirmar y estados correctos (membresía activa)
+    public static final Color VERDE = new Color(46, 204, 113);
+
+    // Color para acciones de cancelar y estados con problema (membresía vencida)
+    public static final Color ROJO = new Color(231, 76, 60);
+
+    // Fondo gris claro de las pantallas de contenido
+    public static final Color FONDO_PANTALLA = new Color(245, 245, 245);
+
     // Nombre de la fuente que usan todas las pantallas
     public static final String FUENTE = "Arial";
 
