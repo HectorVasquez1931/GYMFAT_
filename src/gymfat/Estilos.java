@@ -31,6 +31,32 @@ public final class Estilos {
     // Fondo gris claro de las pantallas de contenido
     public static final Color FONDO_PANTALLA = new Color(245, 245, 245);
 
+    // Colores de las pantallas de lista (miembros, entrenadores, empleados)
+
+    // Fondo de la pantalla y de la barra de búsqueda
+    public static final Color FONDO_LISTA = new Color(248, 248, 248);
+
+    // Fondo de las filas impares de las tablas
+    public static final Color GRIS_FILA = new Color(252, 252, 252);
+
+    // Líneas que separan el encabezado y el pie de página del resto de la pantalla
+    public static final Color GRIS_BORDE = new Color(220, 220, 220);
+
+    // Borde de los campos de texto
+    public static final Color GRIS_BORDE_CAMPO = new Color(200, 200, 200);
+
+    // Líneas horizontales entre las filas de las tablas
+    public static final Color GRIS_CUADRICULA = new Color(235, 235, 235);
+
+    // Fondo de botones secundarios, como "Mostrar todos"
+    public static final Color FONDO_BOTON_SECUNDARIO = new Color(240, 240, 240);
+
+    // Fondo de la fila seleccionada en las tablas
+    public static final Color AMARILLO_SELECCION = new Color(255, 240, 150);
+
+    // Texto de los títulos de las columnas
+    public static final Color GRIS_TEXTO_ENCABEZADO = new Color(80, 80, 80);
+
     // Nombre de la fuente que usan todas las pantallas
     public static final String FUENTE = "Arial";
 

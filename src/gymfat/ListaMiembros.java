@@ -82,16 +82,8 @@ public class ListaMiembros extends JPanel implements ActionListener {
         "DELETE FROM miembro WHERE id_miembro = ?"
     };
 
-    // Colores propios de esta pantalla
-    private static final Color FONDO_LISTA = new Color(248, 248, 248);
-    private static final Color GRIS_FILA = new Color(252, 252, 252);
+    // Colores propios de esta pantalla; los compartidos con otras listas están en Estilos
     private static final Color ROJO_CLARO = new Color(255, 235, 235);
-    private static final Color GRIS_BORDE = new Color(220, 220, 220);
-    private static final Color GRIS_BORDE_CAMPO = new Color(200, 200, 200);
-    private static final Color GRIS_CUADRICULA = new Color(235, 235, 235);
-    private static final Color FONDO_BOTON_SECUNDARIO = new Color(240, 240, 240);
-    private static final Color AMARILLO_SELECCION = new Color(255, 240, 150);
-    private static final Color GRIS_TEXTO_ENCABEZADO = new Color(80, 80, 80);
     private static final Color GRIS_TEXTO_FILA = new Color(40, 40, 40);
 
     // Fuentes de esta pantalla
@@ -114,7 +106,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
     public ListaMiembros(String nivel) {
         this.nivel = nivel;
         setLayout(new BorderLayout());
-        setBackground(FONDO_LISTA);
+        setBackground(Estilos.FONDO_LISTA);
         construirInterfaz();
         cargarMiembros("");
     }
@@ -136,7 +128,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
 
         JPanel pnlEncabezado = new JPanel(new BorderLayout());
         pnlEncabezado.setBackground(Color.WHITE);
-        pnlEncabezado.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GRIS_BORDE));
+        pnlEncabezado.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Estilos.GRIS_BORDE));
         pnlEncabezado.add(lblTitulo, BorderLayout.NORTH);
         pnlEncabezado.add(crearPanelBusqueda(), BorderLayout.CENTER);
         return pnlEncabezado;
@@ -145,7 +137,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
     // Crea el campo de búsqueda con los botones Buscar y Mostrar todos
     private JPanel crearPanelBusqueda() {
         JPanel pnlBusqueda = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        pnlBusqueda.setBackground(FONDO_LISTA);
+        pnlBusqueda.setBackground(Estilos.FONDO_LISTA);
 
         JLabel lblBuscar = new JLabel("Buscar");
         lblBuscar.setFont(FUENTE_TEXTO);
@@ -155,14 +147,14 @@ public class ListaMiembros extends JPanel implements ActionListener {
         txtBuscar = new JTextField(COLUMNAS_CAMPO_BUSCAR);
         txtBuscar.setFont(FUENTE_TEXTO);
         txtBuscar.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(GRIS_BORDE_CAMPO, 1),
+                BorderFactory.createLineBorder(Estilos.GRIS_BORDE_CAMPO, 1),
                 BorderFactory.createEmptyBorder(4, 8, 4, 8)));
         txtBuscar.setActionCommand(COMANDO_BUSCAR);
         txtBuscar.addActionListener(this);
         pnlBusqueda.add(txtBuscar);
 
         pnlBusqueda.add(crearBoton(COMANDO_BUSCAR, Estilos.AMARILLO));
-        pnlBusqueda.add(crearBoton(COMANDO_MOSTRAR_TODOS, FONDO_BOTON_SECUNDARIO));
+        pnlBusqueda.add(crearBoton(COMANDO_MOSTRAR_TODOS, Estilos.FONDO_BOTON_SECUNDARIO));
         return pnlBusqueda;
     }
 
@@ -180,8 +172,8 @@ public class ListaMiembros extends JPanel implements ActionListener {
         tblMiembros.setRowHeight(ALTO_FILA);
         tblMiembros.setFont(FUENTE_TEXTO);
         tblMiembros.setShowVerticalLines(false);
-        tblMiembros.setGridColor(GRIS_CUADRICULA);
-        tblMiembros.setSelectionBackground(AMARILLO_SELECCION);
+        tblMiembros.setGridColor(Estilos.GRIS_CUADRICULA);
+        tblMiembros.setSelectionBackground(Estilos.AMARILLO_SELECCION);
         tblMiembros.setSelectionForeground(Color.BLACK);
         tblMiembros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tblMiembros.setIntercellSpacing(new Dimension(0, 1));
@@ -209,7 +201,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
         JTableHeader encabezadoTabla = tblMiembros.getTableHeader();
         encabezadoTabla.setFont(FUENTE_ENCABEZADO_TABLA);
         encabezadoTabla.setBackground(Color.WHITE);
-        encabezadoTabla.setForeground(GRIS_TEXTO_ENCABEZADO);
+        encabezadoTabla.setForeground(Estilos.GRIS_TEXTO_ENCABEZADO);
         encabezadoTabla.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Estilos.AMARILLO));
         encabezadoTabla.setPreferredSize(new Dimension(0, ALTO_ENCABEZADO_TABLA));
     }
@@ -226,7 +218,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
     private JPanel crearPiePagina() {
         JPanel pnlPiePagina = new JPanel(new FlowLayout(FlowLayout.RIGHT, 15, 10));
         pnlPiePagina.setBackground(Color.WHITE);
-        pnlPiePagina.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, GRIS_BORDE));
+        pnlPiePagina.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Estilos.GRIS_BORDE));
 
         pnlPiePagina.add(crearBoton(COMANDO_ELIMINAR, Color.RED));
         pnlPiePagina.add(crearBoton(COMANDO_VER_DETALLE, Estilos.AMARILLO));
@@ -405,7 +397,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
                 if (ESTADO_VENCIDA.equalsIgnoreCase(estado)) {
                     celda.setBackground(ROJO_CLARO);
                 } else {
-                    celda.setBackground(fila % 2 == 0 ? Color.WHITE : GRIS_FILA);
+                    celda.setBackground(fila % 2 == 0 ? Color.WHITE : Estilos.GRIS_FILA);
                 }
                 celda.setForeground(GRIS_TEXTO_FILA);
             }
