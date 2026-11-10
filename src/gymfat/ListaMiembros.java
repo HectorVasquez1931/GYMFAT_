@@ -253,7 +253,7 @@ public class ListaMiembros extends JPanel implements ActionListener {
             return;
         }
         int idMiembro = (int) modeloMiembros.getValueAt(fila, COLUMNA_ID);
-        new DetailMember(idMiembro);
+        new DetalleMiembro(idMiembro);
     }
 
     // Elimina al miembro seleccionado después de confirmar. Solo para administradores.
