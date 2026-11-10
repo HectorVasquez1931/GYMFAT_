@@ -100,7 +100,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private final JPanel pnlContenido = new JPanel();
 
     // Pantalla de la lista de miembros; se vuelve a cargar cada vez que se abre
-    private MembersList pnlListaMiembros;
+    private ListaMiembros pnlListaMiembros;
 
     // Botón del menú que corresponde a la pantalla visible
     private JButton btnActivo = null;
@@ -266,7 +266,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         pnlContenido.setLayout(distribucionPantallas);
         pnlContenido.add(new PanelInicio(nombreUsuario), OPCION_INICIO);
         pnlContenido.add(new AddMember(), OPCION_REGISTRAR_MIEMBRO);
-        pnlListaMiembros = new MembersList(nivel);
+        pnlListaMiembros = new ListaMiembros(nivel);
         pnlContenido.add(pnlListaMiembros, OPCION_LISTA_MIEMBROS);
         pnlContenido.add(new TrainersList(), OPCION_ENTRENADORES);
         pnlContenido.add(new PanelMembresias(), OPCION_MEMBRESIAS);
@@ -294,7 +294,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
         // La lista de miembros se vuelve a cargar para mostrar los registros recientes
         if (comando.equals(OPCION_LISTA_MIEMBROS)) {
-            pnlListaMiembros.refresh();
+            pnlListaMiembros.recargar();
         }
 
         marcarBotonActivo((JButton) evento.getSource());
