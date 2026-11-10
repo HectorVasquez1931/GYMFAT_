@@ -31,7 +31,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 // Ventana con la que el usuario entra al sistema
 public class InicioSesion extends JFrame implements ActionListener {
@@ -80,11 +79,6 @@ public class InicioSesion extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         construirInterfaz();
         setVisible(true);
-    }
-
-    // Punto de entrada del programa: abre la ventana de inicio de sesión
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(InicioSesion::new);
     }
 
     // Construcción de la interfaz

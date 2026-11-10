@@ -307,7 +307,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
                 "Cerrar sesión", JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
             dispose();
-            new Login();
+            new InicioSesion();
         }
     }
 
